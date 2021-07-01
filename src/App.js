@@ -5,6 +5,7 @@ import Navbar from './components/navegacion/Navbar'
 import Inicio from './components/pages/Inicio'
 import Contacto from './components/pages/Contacto'
 import Redes from './components/pages/Redes'
+import Botoncontador from './components/pages/Botoncontador'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/' exact component={Inicio}/>
           <Route path='/contacto' component={Contacto}/>
           <Route path='/redes' component={Redes}/>
+          <Route path='/Boton' component={Botoncontador}/>
         </Switch>
       </Router>
 
