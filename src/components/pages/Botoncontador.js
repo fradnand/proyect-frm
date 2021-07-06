@@ -1,40 +1,37 @@
 
-import React from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
+import { bgBlack } from 'jest-matcher-utils/node_modules/chalk';
 
-class Boton extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      contador : 0
-    }; 
+class lista extends Component {
+  state={
+    ciudades:[]
   }
-  onClickHandler(){
-    this.setState({
-       contador : this.state.contador+1
+  componentDidMount(){
+    axios.get("http://localhost:3000/ciudades")
+    .then((response) => {
+      this.setState({ciudades: response.data})
+    })
+    .catch((console) => {
     });
-  }
+  } 
   
   render(){
-    return (
-      <div>  
-        <Contador valor={this.state.contador}/>
-        <Button label="Agregar" onClick={()=>this.onClickHandler()} />
-      </div>
-    )
+    return(
+      <div className="Appi">
+        <div className="form-group">
+          <select name="ciudades" className="form-control">
+            {this.state.ciudades.map(elemento=>(
+              <option key={elemento.id} value={elemento.ciudad}>{elemento.ciudad}</option>
+              )
+              
+              )}
+          </select>
+        </div>
+      </div>        
+    );
   }
+
 }
 
-const Contador = props => {
-  return(
-    <div>
-      <h1>{props.valor}</h1>
-    </div>
-  );
-};
-const Button = props => {
-    return (
-      <button onClick={()=>props.onClick()}> {props.label}</button>
-    );
-};
-
-export default Boton
+export default lista

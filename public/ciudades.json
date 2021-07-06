@@ -1,0 +1,84 @@
+{
+    "ciudades": [
+        {
+            "id": 1,
+            "ciudad": "Santiago de Chile"
+        },
+        {
+            "id": 2,
+            "ciudad": "Buenos Aires"
+        },
+        {
+            "id": 3,
+            "ciudad": "Bogota"
+        },
+        {
+            "id": 4,
+            "ciudad": "Lima"
+        },
+        {
+            "id": 5,
+            "ciudad": "Quito"
+        },
+        {
+            "id": 6,
+            "ciudad": "Montevideo"
+        },
+        {
+            "id": 7,
+            "ciudad": "Sucre"
+        },
+        {
+            "id": 8,
+            "ciudad": "Caracas"
+        },
+        {
+            "id": 9,
+            "ciudad": "Asuncion"
+        },
+        {
+            "id": 10,
+            "ciudad": "Brasilia"
+        },
+        {
+            "id": 11,
+            "ciudad": "San Jose"
+        },
+        {
+            "id": 12,
+            "ciudad": "La Habana"
+        },
+        {
+            "id": 13,
+            "ciudad": "San Salvador"
+        },
+        {
+            "id": 14,
+            "ciudad": "Ciudad de Guatemala"
+        },
+        {
+            "id": 15,
+            "ciudad": "Puerto Principe"
+        },
+        {
+            "id": 16,
+            "ciudad": "Tegucigalpa"
+        },
+        {
+            "id": 17,
+            "ciudad": "Ciudad de Mexico"
+        },
+        {
+            "id": 18,
+            "ciudad": "Managua"
+        },
+        {
+            "id": 19,
+            "ciudad": "Panama"
+        },
+        {
+            "id": 20,
+            "ciudad": "Santo Domingo"
+        }
+    ]
+}
