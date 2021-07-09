@@ -1,55 +1,79 @@
 
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Colors from '../pages/Colors'
+import DetailsThumb from '../pages/DetailsThumb';
 
-const inicio = () => {
-    return (
+class inicio extends React.Component{
 
-        <div className="row row-cols-md-4 justify-content-center align-items-center">
-            <div className="col">
-                <div className="card h-100">
-                    <Link to='/'>
-                        <img src='./card1.jpg' width='320'/>
-                    </Link>
-                    <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    <div className="card-footer">
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </div>
+    state = {
+      products: [
+        {
+          "_id": "1",
+          "title": "Mundo Nike",
+          "src": [
+              './img1.jpg',
+              './img2.jpg',
+              './img3.jpg',
+              './img4.jpg'
+            ],
+          "description": "Exclusivo miembros Nike",
+          "content": "Calzado para Hombre y Mujer",
+          "price": 89.999,
+          "colors":["red","black","crimson","teal"],
+          "count": 1
+        }
+      ],
+      index: 0
+    };
+  
+    myRef = React.createRef();
+  
+    handleTab = index =>{
+      this.setState({index: index})
+      const images = this.myRef.current.children;
+      for(let i=0; i<images.length; i++){
+        images[i].className = images[i].className.replace("active", "");
+      }
+      images[index].className = "active";
+    };
+  
+    componentDidMount(){
+      const {index} = this.state;
+      this.myRef.current.children[index].className = "active";
+    }
+  
+  
+    render(){
+      const {products, index} = this.state;
+      return(
+        <div className="app">
+          {
+            products.map(item =>(
+              <div className="details" key={item._id}>
+                <div className="big-img">
+                  <img src={item.src[index]} alt=""/>
                 </div>
-            </div>
-            <div className="col">
-                <div className="card h-100">
-                    <Link to='/'>
-                        <img src='./card2.jpg' width='320'/>
-                    </Link>
-                    <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    <div className="card-footer">
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </div>
+  
+                <div className="box">
+                  <div className="row">
+                    <h2>{item.title}</h2>
+                    <span>${item.price}</span>
+                  </div>
+                  <Colors colors={item.colors} />
+  
+                  <p>{item.description}</p>
+                  <p>{item.content}</p>
+  
+                  <DetailsThumb images={item.src} tab={this.handleTab} myRef={this.myRef} />
+                  <button className="cart">Agregar</button>
+  
                 </div>
-            </div>
-            <div className="col">
-                <div className="card h-100">
-                    <Link to='/'>
-                        <img src='./card3.jpg' width='320'/>
-                    </Link>
-                    <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    <div className="card-footer">
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
+              </div>
+            ))
+          }
         </div>
-    )
-}
-
-export default inicio
+      );
+    };
+  }
+  
+  export default inicio;
