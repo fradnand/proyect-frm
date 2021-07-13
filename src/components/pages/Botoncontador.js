@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
-import { bgBlack } from 'jest-matcher-utils/node_modules/chalk';
 
 class lista extends Component {
   state={
